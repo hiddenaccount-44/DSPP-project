@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html>
-
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>George Graham</title>
 
-
     <style>
-
-
-        body{
-            margin:0;
-            font-family:Arial,sans-serif;
+        * {
+            box-sizing: border-box;
         }
 
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
 
         nav {
             position: absolute;
@@ -21,7 +21,6 @@
             right: 50px;
             z-index: 100;
         }
-
 
         nav a {
             color: white;
@@ -31,71 +30,88 @@
             font-weight: bold;
         }
 
+        nav a:hover {
+            opacity: 0.8;
+        }
 
-        .hero{
-            height:100vh;
+        .cv-button {
+            border: 2px solid white;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
 
-
+        .hero {
+            height: 100vh;
             background:
                 linear-gradient(
-                    rgba(0,0,0,0.4),
-                    rgba(0,0,0,0.4)
+                    rgba(0, 0, 0, 0.4),
+                    rgba(0, 0, 0, 0.4)
                 ),
                 url('images/IMG_1935.jpg');
-
-
-            background-size:cover;
-            background-position:center;
-
-
-            display:flex;
-            justify-content:center;
-            align-items:center;
-
-
-            color:white;
-            text-align:center;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
         }
 
-
-        h1{
-            font-size:5rem;
+        h1 {
+            font-size: 5rem;
+            margin: 0 20px 20px;
         }
 
-
-        p{
-            font-size:1.5rem;
+        p {
+            font-size: 1.5rem;
+            margin: 0 20px;
         }
 
+        @media (max-width: 700px) {
+            nav {
+                top: 20px;
+                right: 20px;
+                left: 20px;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 14px;
+                flex-wrap: wrap;
+            }
 
+            nav a {
+                margin-left: 0;
+                font-size: 14px;
+            }
+
+            .cv-button {
+                padding: 8px 12px;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+        }
     </style>
-
-
 </head>
 
-
 <body>
+    <nav aria-label="Main navigation">
+        <a href="#home">HOME</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#contact">CONTACT</a>
+        <a href="images/cv.pdf" class="cv-button" target="_blank" rel="noopener noreferrer">CV</a>
+    </nav>
 
-
-<div class="hero">
-
-
-    <div>
-
-
-        <h1>GEORGE GRAHAM</h1>
-
-
-        <p>Data Analyst | Power BI | Data Engineering</p>
-
-
+    <div class="hero" id="home">
+        <div>
+            <h1>GEORGE GRAHAM</h1>
+            <p>Data Analyst | Power BI (DAX and M) | Python</p>
+        </div>
     </div>
-
-
-</div>
-
-
 </body>
-
-
 </html>

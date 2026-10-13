@@ -11,27 +11,46 @@
         nav { position: absolute; top: 30px; right: 50px; z-index: 100; }
         nav a { color: white; text-decoration: none; margin-left: 30px; font-size: 18px; font-weight: bold; }
         nav a:hover { opacity: 0.8; }
-        .cv-button { border: 2px solid white; padding: 10px 15px; border-radius: 5px; }
+        .cv-button { border: none; padding: 0; border-radius: 0; }
         .hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)), url('images/IMG_1935.jpg'); background-size: cover; background-position: center; display: flex; justify-content: center; align-items: center; color: white; text-align: center; }
         .hero h1 { margin: 0 20px 20px; font-size: 5rem; }
         .hero p { margin: 0 20px; font-size: 1.5rem; }
-        .about-section { background-color: #d8e0df; padding: 100px 7%; }
+        .about-section { background-color: #f7f5f0; padding: 100px 7%; }
         .about-container, .projects-container { width: 100%; max-width: 1120px; margin: 0 auto; }
         .about-container { display: grid; grid-template-columns: minmax(280px,390px) minmax(0,1fr); gap: 90px; align-items: start; }
         .about-left h2, .projects-title { color: #3e494d; font-size: clamp(3rem,6vw,4.5rem); line-height: .95; letter-spacing: -2px; }
         .about-left h2 { margin: 0 0 45px; }
         .about-image { display: block; width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center; border-radius: 4px; }
+
+        .about-image-wrapper {
+            width: 100%;
+        }
+        .about-image-fallback {
+            display: none;
+            width: 100%;
+            aspect-ratio: 4/5;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            border: 2px dashed #aab8b6;
+            border-radius: 4px;
+            color: #3e494d;
+            font-size: .95rem;
+            font-weight: bold;
+            line-height: 1.7;
+            text-align: center;
+        }
         .about-right { padding-top: 82px; }
         .about-right p, .project-content p { color: #3f4b4f; font-size: 1.1rem; line-height: 1.8; }
         .about-right p { margin: 0 0 24px; }
         .about-right strong, .tech-stack, .project-link { color: #173f4a; }
-        .projects-section { background-color: #fff; padding: 100px 7%; }
+        .projects-section { background-color: #e4ebea; padding: 100px 7%; }
         .projects-title { margin: 0 0 70px; }
-        .project-item { display: grid; grid-template-columns: minmax(280px,390px) minmax(0,1fr); gap: 90px; align-items: center; padding-bottom: 70px; margin-bottom: 70px; border-bottom: 1px solid #d8e0df; }
+        .project-item { display: grid; grid-template-columns: minmax(280px,390px) minmax(0,1fr); gap: 90px; align-items: center; padding-bottom: 70px; margin-bottom: 70px; border-bottom: 1px solid rgba(62,73,77,.28); }
         .project-item:last-child { padding-bottom: 0; margin-bottom: 0; border-bottom: 0; }
         .project-image, .project-placeholder { display: block; width: 100%; aspect-ratio: 4/3; border-radius: 4px; }
         .project-image { object-fit: cover; object-position: center; }
-        .project-placeholder { display: flex; align-items: center; justify-content: center; padding: 20px; background: #d8e0df; color: #5a676b; font-size: .95rem; font-weight: bold; letter-spacing: 1px; text-align: center; }
+        .project-placeholder { display: flex; align-items: center; justify-content: center; padding: 20px; background: #f7f5f0; color: #5a676b; font-size: .95rem; font-weight: bold; letter-spacing: 1px; text-align: center; }
         .project-content h3 { margin: 0 0 18px; color: #3e494d; font-size: 2rem; line-height: 1.2; }
         .project-content p { margin: 0 0 20px; }
         .tech-stack { font-size: .95rem; font-weight: bold; line-height: 1.6; }
@@ -40,7 +59,7 @@
         @media (max-width: 900px) {
             nav { top: 20px; right: 20px; left: 20px; display: flex; justify-content: center; align-items: center; gap: 14px; flex-wrap: wrap; }
             nav a { margin-left: 0; font-size: 14px; }
-            .cv-button { padding: 8px 12px; }
+            .cv-button { padding: 0; }
             .hero h1 { font-size: 3rem; }
             .hero p { font-size: 1.1rem; }
             .about-section, .projects-section { padding: 70px 24px; }
@@ -69,7 +88,18 @@
             <div class="about-container">
                 <div class="about-left">
                     <h2>ABOUT ME</h2>
-                    <img class="about-image" src="images/about-me.jpg" alt="About George Graham">
+                    <div class="about-image-wrapper">
+                        <img
+                            class="about-image"
+                            src="images/IMG_8891.jpg"
+                            alt="About George Graham"
+                            onerror="if (!this.dataset.triedUppercase) { this.dataset.triedUppercase='true'; this.src='images/IMG_8891.JPG'; } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }"
+                        >
+                        <div class="about-image-fallback">
+                            ABOUT IMAGE NOT FOUND<br>
+                            Check whether the filename is IMG_8891.jpg or IMG_8891.JPG in GitHub
+                        </div>
+                    </div>
                 </div>
                 <div class="about-right">
                     <p>I am a <strong>Data Analyst</strong> at Warwickshire County Council with experience in Power BI, business intelligence and data engineering. I develop dashboards, automated reporting solutions and data processes that help services make effective use of their data.</p>
